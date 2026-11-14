@@ -41,6 +41,10 @@ enum malloc_thp_mode_t __malloc_thp_mode (void) attribute_hidden;
 void __malloc_hugepage_config (size_t requested, size_t *pagesize, int *flags)
      attribute_hidden;
 
+#ifndef USE_MALLOC_DEFAULT_THP
+# undef DEFAULT_THP_PAGESIZE
+#endif
+
 #ifndef DEFAULT_THP_PAGESIZE
 # define DEFAULT_THP_PAGESIZE	0
 #endif
